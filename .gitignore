@@ -1,0 +1,16 @@
+# Environnement virtuel (reconstruisible)
+.venv/
+
+# Cache Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Secrets et configuration locale
+.env
+
+# Données : on garde les dossiers, pas les fichiers
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
