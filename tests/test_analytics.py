@@ -83,3 +83,16 @@ def test_growth_is_null_when_base_month_is_tiny(scalar):
         "AND revenue_growth_pct IS NOT NULL"
     )
     assert bad == 0
+
+@pytest.mark.parametrize(
+    "view",
+    [
+        "v_monthly_sales",
+        "v_seller_performance",
+        "v_category_performance",
+        "v_delivery_monthly",
+        "v_customer_behavior",
+    ],
+)
+def test_metric_views_exist_and_return_rows(scalar, view):
+    assert scalar(f"SELECT COUNT(*) FROM analytics.{view}") > 0
